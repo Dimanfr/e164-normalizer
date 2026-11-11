@@ -1,0 +1,314 @@
+[
+ {
+  "label": "de_international_spaced",
+  "raw_phone": "+49 30 23125 000",
+  "expected_status": "valid_de",
+  "expected_canonical": "+493023125000",
+  "expected_country_code": "49",
+  "expected_reason": "valid_de_international"
+ },
+ {
+  "label": "de_international_canonical",
+  "raw_phone": "+494066969003",
+  "expected_status": "valid_de",
+  "expected_canonical": "+494066969003",
+  "expected_country_code": "49",
+  "expected_reason": "valid_de_international"
+ },
+ {
+  "label": "de_international_access",
+  "raw_phone": "0049 69 90009 002",
+  "expected_status": "valid_de",
+  "expected_canonical": "+496990009002",
+  "expected_country_code": "49",
+  "expected_reason": "valid_de_international_access"
+ },
+ {
+  "label": "de_local_spaced",
+  "raw_phone": "030 23125 001",
+  "expected_status": "valid_de",
+  "expected_canonical": "+493023125001",
+  "expected_country_code": "49",
+  "expected_reason": "valid_de_local"
+ },
+ {
+  "label": "de_local_parens_dash",
+  "raw_phone": "(0221) 4710-004",
+  "expected_status": "valid_de",
+  "expected_canonical": "+492214710004",
+  "expected_country_code": "49",
+  "expected_reason": "valid_de_local"
+ },
+ {
+  "label": "de_local_slash_dash",
+  "raw_phone": "089/99998-005",
+  "expected_status": "valid_de",
+  "expected_canonical": "+498999998005",
+  "expected_country_code": "49",
+  "expected_reason": "valid_de_local"
+ },
+ {
+  "label": "de_local_dots_padded",
+  "raw_phone": "  030.23125.008  ",
+  "expected_status": "valid_de",
+  "expected_canonical": "+493023125008",
+  "expected_country_code": "49",
+  "expected_reason": "valid_de_local"
+ },
+ {
+  "label": "de_local_tab",
+  "raw_phone": "030\t23125 009",
+  "expected_status": "valid_de",
+  "expected_canonical": "+493023125009",
+  "expected_country_code": "49",
+  "expected_reason": "valid_de_local"
+ },
+ {
+  "label": "de_mobile_local",
+  "raw_phone": "0171 39200 06",
+  "expected_status": "valid_de",
+  "expected_canonical": "+491713920006",
+  "expected_country_code": "49",
+  "expected_reason": "valid_de_local"
+ },
+ {
+  "label": "de_mobile_international",
+  "raw_phone": "+49 176 040690 07",
+  "expected_status": "valid_de",
+  "expected_canonical": "+4917604069007",
+  "expected_country_code": "49",
+  "expected_reason": "valid_de_international"
+ },
+ {
+  "label": "too_short_international",
+  "raw_phone": "+49 30 231",
+  "expected_status": "invalid",
+  "expected_canonical": null,
+  "expected_country_code": "49",
+  "expected_reason": "too_short_de"
+ },
+ {
+  "label": "too_short_local",
+  "raw_phone": "030 231",
+  "expected_status": "invalid",
+  "expected_canonical": null,
+  "expected_country_code": "49",
+  "expected_reason": "too_short_de"
+ },
+ {
+  "label": "trunk_zero_after_country_code",
+  "raw_phone": "+49 030 23125 010",
+  "expected_status": "invalid",
+  "expected_canonical": null,
+  "expected_country_code": "49",
+  "expected_reason": "trunk_zero_after_country_code"
+ },
+ {
+  "label": "trunk_zero_after_access_code",
+  "raw_phone": "0049 030 23125011",
+  "expected_status": "invalid",
+  "expected_canonical": null,
+  "expected_country_code": "49",
+  "expected_reason": "trunk_zero_after_country_code"
+ },
+ {
+  "label": "extension_text",
+  "raw_phone": "Durchwahl 12",
+  "expected_status": "invalid",
+  "expected_canonical": null,
+  "expected_country_code": null,
+  "expected_reason": "contains_letters"
+ },
+ {
+  "label": "extension_digits",
+  "raw_phone": "12",
+  "expected_status": "invalid",
+  "expected_canonical": null,
+  "expected_country_code": null,
+  "expected_reason": "unparseable"
+ },
+ {
+  "label": "trailing_text",
+  "raw_phone": "+49 30 23125 012 ext",
+  "expected_status": "invalid",
+  "expected_canonical": null,
+  "expected_country_code": null,
+  "expected_reason": "contains_letters"
+ },
+ {
+  "label": "two_plus_signs",
+  "raw_phone": "+49+30 23125013",
+  "expected_status": "invalid",
+  "expected_canonical": null,
+  "expected_country_code": null,
+  "expected_reason": "malformed_plus"
+ },
+ {
+  "label": "plus_in_middle",
+  "raw_phone": "030 +23125014",
+  "expected_status": "invalid",
+  "expected_canonical": null,
+  "expected_country_code": null,
+  "expected_reason": "malformed_plus"
+ },
+ {
+  "label": "hash_character",
+  "raw_phone": "030 23125#015",
+  "expected_status": "invalid",
+  "expected_canonical": null,
+  "expected_country_code": null,
+  "expected_reason": "unsupported_characters"
+ },
+ {
+  "label": "non_ascii_letter",
+  "raw_phone": "030 23125 016 \u00e4",
+  "expected_status": "invalid",
+  "expected_canonical": null,
+  "expected_country_code": null,
+  "expected_reason": "unsupported_characters"
+ },
+ {
+  "label": "non_breaking_space",
+  "raw_phone": "030\u00a023125017",
+  "expected_status": "invalid",
+  "expected_canonical": null,
+  "expected_country_code": null,
+  "expected_reason": "unsupported_characters"
+ },
+ {
+  "label": "separators_only",
+  "raw_phone": "()-/.",
+  "expected_status": "invalid",
+  "expected_canonical": null,
+  "expected_country_code": null,
+  "expected_reason": "empty_after_cleanup"
+ },
+ {
+  "label": "double_zero_short",
+  "raw_phone": "0012",
+  "expected_status": "invalid",
+  "expected_canonical": null,
+  "expected_country_code": null,
+  "expected_reason": "unparseable"
+ },
+ {
+  "label": "empty_string",
+  "raw_phone": "",
+  "expected_status": "invalid",
+  "expected_canonical": null,
+  "expected_country_code": null,
+  "expected_reason": "empty"
+ },
+ {
+  "label": "whitespace_only",
+  "raw_phone": "   ",
+  "expected_status": "invalid",
+  "expected_canonical": null,
+  "expected_country_code": null,
+  "expected_reason": "empty"
+ },
+ {
+  "label": "null_value",
+  "raw_phone": null,
+  "expected_status": "invalid",
+  "expected_canonical": null,
+  "expected_country_code": null,
+  "expected_reason": "empty"
+ },
+ {
+  "label": "unsupported_at_plus",
+  "raw_phone": "+43 0 000 0000",
+  "expected_status": "unsupported_country",
+  "expected_canonical": null,
+  "expected_country_code": "43",
+  "expected_reason": "unsupported_country_at"
+ },
+ {
+  "label": "unsupported_at_access",
+  "raw_phone": "0043 0000 0000",
+  "expected_status": "unsupported_country",
+  "expected_canonical": null,
+  "expected_country_code": "43",
+  "expected_reason": "unsupported_country_at"
+ },
+ {
+  "label": "unsupported_ch_plus",
+  "raw_phone": "+41 00 000 00 00",
+  "expected_status": "unsupported_country",
+  "expected_canonical": null,
+  "expected_country_code": "41",
+  "expected_reason": "unsupported_country_ch"
+ },
+ {
+  "label": "unsupported_ch_access",
+  "raw_phone": "0041 0 0000 0000",
+  "expected_status": "unsupported_country",
+  "expected_canonical": null,
+  "expected_country_code": "41",
+  "expected_reason": "unsupported_country_ch"
+ },
+ {
+  "label": "unsupported_other_plus",
+  "raw_phone": "+1 000 000 0000",
+  "expected_status": "unsupported_country",
+  "expected_canonical": null,
+  "expected_country_code": null,
+  "expected_reason": "unsupported_country_other"
+ },
+ {
+  "label": "unsupported_other_access",
+  "raw_phone": "001 000 000 0000",
+  "expected_status": "unsupported_country",
+  "expected_canonical": null,
+  "expected_country_code": null,
+  "expected_reason": "unsupported_country_other"
+ },
+ {
+  "label": "letter_v_leading",
+  "raw_phone": "v030 23125 000",
+  "expected_status": "invalid",
+  "expected_canonical": null,
+  "expected_country_code": null,
+  "expected_reason": "contains_letters"
+ },
+ {
+  "label": "letter_v_trailing",
+  "raw_phone": "030 23125 000v",
+  "expected_status": "invalid",
+  "expected_canonical": null,
+  "expected_country_code": null,
+  "expected_reason": "contains_letters"
+ },
+ {
+  "label": "vertical_tab_only",
+  "raw_phone": "\u000b",
+  "expected_status": "invalid",
+  "expected_canonical": null,
+  "expected_country_code": null,
+  "expected_reason": "empty"
+ },
+ {
+  "label": "vertical_tab_padded",
+  "raw_phone": "\u000b030 23125 002\u000b",
+  "expected_status": "valid_de",
+  "expected_canonical": "+493023125002",
+  "expected_country_code": "49",
+  "expected_reason": "valid_de_local"
+ },
+ {
+  "label": "vertical_tab_inside",
+  "raw_phone": "030\u000b23125 003",
+  "expected_status": "valid_de",
+  "expected_canonical": "+493023125003",
+  "expected_country_code": "49",
+  "expected_reason": "valid_de_local"
+ },
+ {
+  "label": "form_feed_padded",
+  "raw_phone": "\f+49 30 23125 004\f",
+  "expected_status": "valid_de",
+  "expected_canonical": "+493023125004",
+  "expected_country_code": "49",
+  "expected_reason": "valid_de_international"
+ }
+]
